@@ -1,4 +1,8 @@
 import numpy as np
+import sys
+import pathlib
+current_dir = pathlib.Path(__file__).resolve().parent
+sys.path.append( str(current_dir) + '/../' )
 from dataset.mnist import load_mnist
 from PIL import Image
 import pickle
