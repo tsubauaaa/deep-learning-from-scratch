@@ -1,5 +1,7 @@
 import sys, os
-sys.path.append(os.pardir)
+import pathlib
+current_dir = pathlib.Path(__file__).resolve().parent
+sys.path.append( str(current_dir) + '/../' )
 import numpy as np
 from dataset.mnist import load_mnist
 from PIL import Image
