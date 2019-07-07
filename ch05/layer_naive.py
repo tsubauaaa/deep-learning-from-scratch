@@ -25,7 +25,7 @@ class AddLayer:
 
 
     def forward(self, x, y):
-        out x + y
+        out = x + y
         return out
 
 
