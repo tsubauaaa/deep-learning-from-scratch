@@ -1,8 +1,5 @@
-# coding: utf-8
 import sys, os
-import pathlib
-current_dir = pathlib.Path(__file__).resolve().parent
-sys.path.append( str(current_dir) + '/../' )
+sys.path.append(os.pardir)
 import numpy as np
 from dataset.mnist import load_mnist
 from two_layer_net import TwoLayerNet
@@ -15,10 +12,9 @@ network = TwoLayerNet(input_size=784, hidden_size=50, output_size=10)
 x_batch = x_train[:3]
 t_batch = t_train[:3]
 
-grad_numerical = network.numerical_gradient(x_batch, t_batch)
+grad_numerica = network.numerical_gradient(x_batch, t_batch)
 grad_backprop = network.gradient(x_batch, t_batch)
 
-# 各重みの絶対誤差の平均を求める
-for key in grad_numerical.keys():
-    diff = np.average(np.abs(grad_backprop[key] - grad_numerical[key]))
+for key in grad_numerica.keys():
+    diff = np.average( np.abs(grad_backprop[key] - grad_numerica[key]) )
     print(key + ":" + str(diff))
